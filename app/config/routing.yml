@@ -1,10 +1,6 @@
-blog_user:
-    resource: "@BlogUserBundle/Resources/config/routing.yml"
-    prefix:   /
-
-blog_general:
-    resource: "@BlogGeneralBundle/Resources/config/routing.yml"
-    prefix:   /
-
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

@@ -1,13 +1,13 @@
 <?php
 
-namespace Blog\UserBundle\Entity;
+namespace AppBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="users")
+ * @ORM\Table(name="fos_user")
  */
 class User extends BaseUser
 {
@@ -17,4 +17,5 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
 }

@@ -1,3 +1,0 @@
-blog_general_homepage:
-    path:     /
-    defaults: { _controller: BlogGeneralBundle:Default:index }
