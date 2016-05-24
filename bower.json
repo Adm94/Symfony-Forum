@@ -1,0 +1,18 @@
+{
+  "name": "my_project",
+  "homepage": "https://github.com/Adm94/Symfony-Forum",
+  "authors": [
+    "Adm94 <adam.chaibi@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ]
+}

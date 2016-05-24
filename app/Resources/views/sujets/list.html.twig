@@ -1,0 +1,10 @@
+{% extends '::base.html.twig' %}
+{% block title %}Liste{% endblock %}
+{% block body %}
+	<div class="container">
+		{% for sujet in sujets %}
+			{{ sujet.title }} {{ sujet.description }} {{ sujet.user }} 
+			<br/>
+		{% endfor %}
+	</div>
+{% endblock %}
