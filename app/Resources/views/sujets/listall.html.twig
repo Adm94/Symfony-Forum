@@ -16,15 +16,18 @@
 
         Les sujet de l'utilisateur connecté 
         <br/><br/>
-		{% for sujet in sujets %}
-			{% if (app.user.hasRole('ROLE_ADMIN') or sujet.isAuthor(app.user)) %}
-				{{ sujet.title }} | 
-				<a href="{{ path('oneSujet', {id : sujet.id}) }}">Voir plus</a> |
-				<a href="{{ path('modifySujet', {id : sujet.id}) }}">Modifier</a> |
-				<a href="{{ path('removeSujet', {id : sujet.id}) }}">Supprimer</a>
-				<br/>
-			{% endif %}
-		{% endfor %}
+        {% if app.user is not null %}
+			{% for sujet in sujets %}
+				{% if is_granted('ROLE_ADMIN') or sujet.isAuthor(app.user) %}
+					{{ sujet.title }} | 
+					<a href="{{ path('oneSujet', {id : sujet.id}) }}">Voir plus</a> |
+					<a href="{{ path('titleSujet', {title : sujet.title}) }}">Voir par titre</a> |
+					<a href="{{ path('modifySujet', {id : sujet.id}) }}">Modifier</a> |
+					<a href="{{ path('removeSujet', {id : sujet.id}) }}">Supprimer</a>
+					<br/>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
 		<br/>
 
 		Tout les sujet
@@ -32,6 +35,7 @@
 		{% for sujet in sujets %}
 			{{ sujet.title }} | 
 			<a href="{{ path('oneSujet', {id : sujet.id}) }}">Voir plus</a> |
+			<a href="{{ path('titleSujet', {title : sujet.title}) }}">Voir par titre</a> |
 			<a href="{{ path('removeSujet', {id : sujet.id}) }}">Supprimer</a>
 			<br/>
 		{% endfor %}

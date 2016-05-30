@@ -20,8 +20,6 @@ class SujetController extends Controller
         $session = new Session();
         $sujets = new Sujets();
 
-        $this->denyAccessUnlessGranted('ROLE_USER');
-
         $form = $this->createForm(SujetType::class, $sujets);
         $form->handleRequest($request);
 
@@ -62,6 +60,16 @@ class SujetController extends Controller
     }
 
     /**
+     * @Route("/sujets/{title}", name="titleSujet")
+     */
+    public function getTitleSujet(Request $request, $title){
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Sujets');
+        $sujet = $repository->findOneByTitle($title);
+
+        return $this->render('sujets/list.html.twig', ['sujet' => $sujet]);
+    }
+
+    /**
      * @Route("/sujets/modify/{id}", name="modifySujet")
      */
     public function modifySujet(Request $request, $id){
@@ -93,8 +101,6 @@ class SujetController extends Controller
      */
     public function removeSujet(Request $request, $id){
         $session = new Session();
-
-        $this->denyAccessUnlessGranted('ROLE_USER');
 
         $doctrine = $this->getDoctrine();
         $em = $doctrine->getManager();
